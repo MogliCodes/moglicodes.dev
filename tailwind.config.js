@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: 'jit',
   content: [
     './assets/**/*.{vue,js,css}',
     './components/**/*.{vue,js}',
@@ -8,6 +9,12 @@ module.exports = {
     './plugins/**/*.{js,ts}',
   ],
   theme: {
+    container: {
+      center: true,
+      screens: {
+        '2xl': '1240px'
+      }
+    },
     fontFamily: {
       sans: ['Poppins'],
       display: ['Chewy'],

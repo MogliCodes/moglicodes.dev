@@ -1,10 +1,12 @@
 <template>
-    <div class="max-w-2xl mx-auto min-h-screen flex items-center justify-center">
-        <div class="text-center">
-          <h1 class="font-display text-5xl mb-4">Welcome to MogliCodes</h1>
-          <p class="text-lg">
-            Currently I'm working on the new version of this website. Stay tuned!
+    <LayoutMoContainer>
+      <LayoutMoGrid grid-columns="2">
+        <div>
+          <AtomsMoHeadline headline-type="h1" text="Welcome to the jungle! You found the most fun place about Web Development!" />
+          <p>
+            MogliCodes is a YouTube Channel dedicated to everything fun about web development. You won‘t get in-depth tutorials instead you will see me struggle and fail but eventually succeed. Hopefully.
           </p>
         </div>
-    </div>
+      </LayoutMoGrid>
+    </LayoutMoContainer>
 </template>

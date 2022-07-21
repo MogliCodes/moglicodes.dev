@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gradient-to-b from-primary-lighter to-primary-darker min-h-screen">
+  <div class="min-h-screen">
     <slot />
   </div>
 </template>
