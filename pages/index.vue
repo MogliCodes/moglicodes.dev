@@ -1,4 +1,3 @@
 <template>
     <SectionsHomeStart />
-    <SectionsHomeBlog />
 </template>

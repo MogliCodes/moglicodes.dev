@@ -1,11 +1,11 @@
 <template>
-    <h1 v-if="headlineType === 'h1'" class="text-4xl font-display font-bold mb-8">
+    <h1 v-if="headlineType === 'h1'" class="text-4xl font-display font-bold mb-8 dark:text-white">
         {{ text }}
     </h1>
-    <h2 v-else-if="headlineType === 'h2'" class="text-3xl font-display font-bold">
+    <h2 v-else-if="headlineType === 'h2'" class="text-3xl font-display font-bold dark:text-white">
         {{ text }}
     </h2>
-    <h3 v-else-if="headlineType === 'h3'" class="text-2xl font-display font-bold">
+    <h3 v-else-if="headlineType === 'h3'" class="text-2xl font-display font-bold dark:text-white">
         {{ text }}
     </h3>
 </template>
