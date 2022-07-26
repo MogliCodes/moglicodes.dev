@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   mode: 'jit',
+  darkMode: 'class',
   content: [
     './assets/**/*.{vue,js,css}',
     './components/**/*.{vue,js}',
@@ -25,6 +26,7 @@ module.exports = {
         'primary-lighter': '#ffd2a6',
         'primary-darker': '#e5a15c',
         'mc-blue': '#063144' ,
+        'mc-blue-darker': '#00060b',
         'mc-lightblue': '#3696cc'
       },
     },

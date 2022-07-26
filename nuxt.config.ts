@@ -21,6 +21,7 @@ export default defineNuxtConfig({
         },
     },
     css: ['~/assets/css/tailwind.css'],
+    buildModules: ['@pinia/nuxt'],
     build: {
         postcss: {
             postcssOptions: require('./postcss.config.js'),
