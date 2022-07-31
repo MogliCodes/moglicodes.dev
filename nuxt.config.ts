@@ -3,7 +3,8 @@ import { defineNuxtConfig } from 'nuxt'
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     publicRuntimeConfig: {
-        STRAPI_URL: process.env.STRAPI_URL
+        STRAPI_URL: process.env.STRAPI_URL,
+        GITHUB_API_URL: process.env.GITHUB_API_URL
     },
     app: {
         head: {

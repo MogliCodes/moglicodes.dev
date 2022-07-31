@@ -1,3 +1,4 @@
 <template>
     <SectionsHomeStart />
+    <SectionsHomeGithub />
 </template>
