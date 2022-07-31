@@ -27,7 +27,10 @@ module.exports = {
         'primary-darker': '#e5a15c',
         'mc-blue': '#063144' ,
         'mc-blue-darker': '#00060b',
-        'mc-lightblue': '#3696cc'
+        'mc-lightblue': '#3696cc',
+        'mc-waikawa': '#5969A9',
+        'mc-persian-rose': '#FF36AB',
+        'mc-fern': '#54B872'
       },
     },
   },
