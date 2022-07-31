@@ -27,5 +27,13 @@ export default defineNuxtConfig({
         postcss: {
             postcssOptions: require('./postcss.config.js'),
         },
-    }
+    },
+    vite: {
+        logLevel: 'info',
+        optimizeDeps: {
+            include: [
+                '@yeger/vue-masonry-wall'
+            ]
+        }
+    },
 })

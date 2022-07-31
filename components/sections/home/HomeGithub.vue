@@ -1,10 +1,14 @@
 <template>
-  <section id="github-activity" class="section py-16">
+  <section v-if="events" id="github-activity" class="section py-16">
     <LayoutMoContainer>
       <AtomsMoHeadline text="Latest GitHub Activity" headline-type="h1" class="text-center" />
-      <LayoutMoGrid v-if="events" grid-columns="2">
-        <MoleculesMoGithubEvent v-for="event in events.slice(0, 6)" :key="event.id" :event="event" />
-      </LayoutMoGrid>
+      <masonry-wall :items="events.slice(0, 4)" :ssr-columns="2" :column-width="550" :gap="16">
+        <template #default="{ item, index }">
+          <div>
+            <MoleculesMoGithubEvent :event="item" :key="index" />
+          </div>
+        </template>
+      </masonry-wall>
     </LayoutMoContainer>
   </section>
 </template>
@@ -13,7 +17,6 @@
 /**
  * Fetch posts
  */
-import { useFetch } from "nuxt/app";
 const config = useRuntimeConfig();
 const GITHUB_API_URL = config.GITHUB_API_URL
 const { data: events } = await useFetch(`${GITHUB_API_URL}/events`)

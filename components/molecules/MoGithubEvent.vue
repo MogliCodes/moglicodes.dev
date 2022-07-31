@@ -1,5 +1,5 @@
 <template>
- <div class="flex p-8 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl" v-if="event.type === 'PushEvent'">
+ <div class="flex p-8 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl">
      <div v-if="event.actor">
        <figure v-if="event.actor.avatar_url" class="rounded-full w-12 overflow-hidden shadow-md">
          <img :src="event.actor.avatar_url" alt="">
@@ -18,6 +18,11 @@
              {{ commit.message }}
            </li>
          </ul>
+       </div>
+       <div v-else-if="event.type === 'PullRequestEvent'">
+         <div>
+           <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} opened a pull request in <a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.repo.name }}</a></span>
+         </div>
        </div>
      </div>
  </div>
