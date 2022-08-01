@@ -1,4 +1,4 @@
-exports.convertToLocaleDateString = (
+export const useConvertToLocaleDateString = (
     _date,
     _locale = 'de-DE',
     _options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }

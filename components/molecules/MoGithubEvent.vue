@@ -7,7 +7,7 @@
      </div>
      <div class="pl-6">
        <div>
-         <span class="dark:text-white text-sm">{{ formatDate(event.created_at) }}</span>
+         <span class="dark:text-white text-sm">{{ convertToLocaleDateString(event.created_at) }}</span>
        </div>
        <div v-if="event.type === 'PushEvent'">
          <div>
@@ -30,18 +30,13 @@
 
 <script setup lang="ts">
 
-const props = defineProps({
+const convertToLocaleDateString = useConvertToLocaleDateString
+
+defineProps({
   event: {
     type: Object,
     required: true
   }
 })
-
-function formatDate(_date) {
-  const date = new Date(_date)
-  const locale = 'en-GB'
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-  return date.toLocaleDateString(locale, options)
-}
 
 </script>

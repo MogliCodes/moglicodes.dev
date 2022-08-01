@@ -1,3 +1,5 @@
 <template>
-  <SectionsBlogStart />
+  <div>
+    <SectionsBlogStart />
+  </div>
 </template>
