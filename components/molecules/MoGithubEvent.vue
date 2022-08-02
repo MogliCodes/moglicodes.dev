@@ -24,6 +24,9 @@
            <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} opened a pull request in <a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.repo.name }}</a></span>
          </div>
        </div>
+       <div v-else-if="event.type === 'IssueCommentEvent'">
+         <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} commented on an issue in <a class="underline" target="_blank" :href="event.payload.comment.html_url">{{ event.repo.name }}</a></span>
+       </div>
      </div>
  </div>
 </template>

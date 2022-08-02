@@ -6,7 +6,7 @@
           Loading ...
         </div>
         <div v-else>
-          <masonry-wall :items="posts" :ssr-columns="2" :column-width="550" :gap="16">
+          <masonry-wall :items="posts.reverse()" :ssr-columns="2" :column-width="450" :gap="16">
             <template #default="{ item, index }">
               <div>
                 <MoleculesMoPostTeaser :post="item" :key="item.id" />
