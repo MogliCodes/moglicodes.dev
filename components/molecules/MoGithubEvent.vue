@@ -7,7 +7,7 @@
      </div>
      <div class="pl-6">
        <div>
-         <span class="dark:text-white text-sm">{{ formatDate(event.created_at) }}</span>
+         <span class="dark:text-white text-sm">{{ convertToLocaleDateString(event.created_at) }}</span>
        </div>
        <div v-if="event.type === 'PushEvent'">
          <div>
@@ -24,24 +24,22 @@
            <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} opened a pull request in <a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.repo.name }}</a></span>
          </div>
        </div>
+       <div v-else-if="event.type === 'IssueCommentEvent'">
+         <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} commented on an issue in <a class="underline" target="_blank" :href="event.payload.comment.html_url">{{ event.repo.name }}</a></span>
+       </div>
      </div>
  </div>
 </template>
 
 <script setup lang="ts">
 
-const props = defineProps({
+const convertToLocaleDateString = useConvertToLocaleDateString
+
+defineProps({
   event: {
     type: Object,
     required: true
   }
 })
-
-function formatDate(_date) {
-  const date = new Date(_date)
-  const locale = 'en-GB'
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
-  return date.toLocaleDateString(locale, options)
-}
 
 </script>

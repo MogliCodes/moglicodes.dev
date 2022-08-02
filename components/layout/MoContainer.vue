@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :class="{ 'max-w-4xl' : isNarrow}">
+  <div class="container px-12 xl:px-0" :class="{ 'max-w-3xl' : isNarrow}">
     <slot></slot>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <section id="start" class=" flex items-center py-12">
     <LayoutMoContainer>
-      <AtomsMoHeadline class="text-center" headline-type="h1" text="Latest post" />
+      <AtomsMoHeadline class="text-center" headline-type="h1" text="Blog" />
       <LayoutMoGrid gridColumns="2" class="py-12">
         <div v-for="post in posts" :key="post.id" class="p-8 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl">
           <span :class="getCategoryColorClass(post.category.name)" class="inline-block py-1 px-4 font-display text-sm rounded-full mb-4 bg-black text-white">{{ post.category.name }}</span>
@@ -18,14 +18,15 @@
 /**
  * Fetch posts
  */
-  import { useFetch } from "nuxt/app";
   const config = useRuntimeConfig();
   const STRAPI_URL = config.STRAPI_URL
-  const { data: posts } = await useFetch(`${STRAPI_URL}articles`)
+  const { data: events } = await useFetch(`${STRAPI_URL}`)
 
-  const latestPost = Array.from(posts)
-
-  function getCategoryColorClass(category) {
+/**
+ * Return color for post category
+ * @param category
+ */
+function getCategoryColorClass(category) {
     switch(category) {
       case 'Javascript':
         return 'bg-mc-persian-rose'

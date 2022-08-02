@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     css: ['~/assets/css/tailwind.css'],
     buildModules: ['@pinia/nuxt'],
     build: {
+        transpile: ['@yeger/vue-masonry-wall'],
         postcss: {
             postcssOptions: require('./postcss.config.js'),
         },

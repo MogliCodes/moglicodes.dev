@@ -1,4 +1,7 @@
 <template>
-    <SectionsHomeStart />
-    <SectionsHomeGithub />
+    <div>
+      <SectionsHomeStart />
+      <SectionsHomeGithub />
+      <SectionsHomeBlog />
+    </div>
 </template>

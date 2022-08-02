@@ -1,24 +1,27 @@
 <template>
   <section id="blog" class="min-h-screen">
     <LayoutMoContainer>
-      <LayoutMoGrid>
         <AtomsMoHeadline class="text-center" headline-type="h1" text="Blog" />
-        <div class="grid grid-cols-2 gap-12">
-          <div v-for="post in posts" :key="post.id" class="p-8 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl">
-            <span class="inline-block py-1 px-4 font-display text-sm rounded-full mb-4 bg-black text-white">{{ post.category.name }}</span>
-            <h2 class="font-bold text-2xl mb-4">{{ post.title }}</h2>
-            <p>{{ post.description }}</p>
-          </div>
+        <div v-if="pending">
+          Loading ...
         </div>
-      </LayoutMoGrid>
+        <div v-else>
+          <masonry-wall :items="posts.reverse()" :ssr-columns="2" :column-width="450" :gap="16">
+            <template #default="{ item, index }">
+              <div>
+                <MoleculesMoPostTeaser :post="item" :key="item.id" />
+              </div>
+            </template>
+          </masonry-wall>
+        </div>
     </LayoutMoContainer>
   </section>
 </template>
 
-<script setup>
-import {useFetch} from "nuxt/app";
+<script setup lang="ts">
+
 const config = useRuntimeConfig();
 const STRAPI_URL = config.STRAPI_URL
-const { data: posts } = await useFetch(`${STRAPI_URL}articles`)
+const { pending, data: posts } = await useLazyFetch(`${STRAPI_URL}articles`)
 
 </script>
