@@ -3,7 +3,7 @@
     <LayoutMoContainer>
         <AtomsMoHeadline class="text-center" headline-type="h1" text="Blog" />
         <div v-if="pending">
-          Loading ...
+          <AtomsMoSpinner />
         </div>
         <div v-else>
           <masonry-wall :items="posts.reverse()" :ssr-columns="2" :column-width="450" :gap="16">
@@ -22,6 +22,6 @@
 
 const config = useRuntimeConfig();
 const STRAPI_URL = config.STRAPI_URL
-const { pending, data: posts } = await useLazyFetch(`${STRAPI_URL}articles`)
+const { pending, data: posts } = await useAsyncData('post', () => $fetch(`${STRAPI_URL}articles`), { server: false });
 
 </script>
