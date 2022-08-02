@@ -1,5 +1,5 @@
 <template>
-  <section id="start" class=" flex items-center py-12">
+  <section id="start" class=" flex items-center py-12" v-if="posts">
     <LayoutMoContainer>
       <AtomsMoHeadline class="text-center" headline-type="h1" text="Blog" />
       <LayoutMoGrid gridColumns="2" class="py-12">
@@ -20,7 +20,7 @@
  */
   const config = useRuntimeConfig();
   const STRAPI_URL = config.STRAPI_URL
-  const { data: events } = await useFetch(`${STRAPI_URL}`)
+  const { data: posts } = await useFetch(`${STRAPI_URL}`)
 
 /**
  * Return color for post category

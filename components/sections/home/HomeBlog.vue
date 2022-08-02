@@ -1,5 +1,5 @@
 <template>
-  <section id="blog" class="min-h-screen">
+  <section id="blog" class="min-h-screen" v-if="posts">
     <LayoutMoContainer>
         <AtomsMoHeadline class="text-center" headline-type="h1" text="Blog" />
         <div v-if="pending">
