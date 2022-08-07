@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <section id="start" class="py-16 blog-detail min-h-screen flex items-center">
+    <section id="start" class="py-16 blog-detail">
       <LayoutMoContainer is-narrow>
         <div v-if="pending">
           <AtomsMoSpinner />
@@ -11,7 +11,7 @@
             <AtomsMoHeadline v-if="post.title" headline-type="h1" :text="post.title" />
             <div v-if="post.content" class="dark:text-white">
               <div v-html="md.render(post.content)" />
-              <AtomsMoButton text="GoBack" action="goBack" />
+              <AtomsMoButton text="Go back" action="goBack" />
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@
   const STRAPI_URL = config.STRAPI_URL;
   const route = useRoute();
   const slug = route.params.slug;
-  const { pending, data: post } = await useAsyncData('post', () => $fetch(`${STRAPI_URL}articles/${slug}`), { server: false });
+  const { pending, data: post } = await useAsyncData('post', () => $fetch(`${STRAPI_URL}articles/${slug}`), { initialCache: false });
   const refresh = () => refreshNuxtData('post')
   onMounted(() => {
     refresh()

@@ -29,6 +29,12 @@ export default defineNuxtConfig({
             postcssOptions: require('./postcss.config.js'),
         },
     },
+    target: 'static',
+    nitro: {
+        prerender: {
+            routes: ['/', '/blog', '/blog/*']
+        }
+    },
     vite: {
         logLevel: 'info',
         optimizeDeps: {
