@@ -18,7 +18,7 @@ export default <RouterConfig>{
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve({ top: 0, behavior: 'smooth' })
-            }, 700)
+            }, 500)
         })
     },
 }

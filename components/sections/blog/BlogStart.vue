@@ -2,14 +2,18 @@
   <section id="start" class=" flex items-center py-12" v-if="posts">
     <LayoutMoContainer>
       <AtomsMoHeadline class="text-center" headline-type="h1" text="Blog" />
-      <LayoutMoGrid gridColumns="2" class="py-12">
-        <div v-for="post in posts" :key="post.id" class="p-8 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl">
-          <span :class="getCategoryColorClass(post.category.name)" class="inline-block py-1 px-4 font-display text-sm rounded-full mb-4 bg-black text-white">{{ post.category.name }}</span>
-          <h2 class="dark:text-white font-bold text-2xl mb-4">{{ post.title }}</h2>
-          <p class="dark:text-white mb-4">{{ post.description }}</p>
-          <nuxt-link class="dark:text-white font-display" :to="`/blog/${post.slug}`">Read more</nuxt-link>
-        </div>
-      </LayoutMoGrid>
+      <div v-if="pending">
+        <AtomsMoSpinner />
+      </div>
+      <div v-else-if="!pending && posts">
+        <MasonryWall :items="posts" :ssr-columns="2" :column-width="450" :gap="16">
+          <template #default="{ item, index }">
+            <div>
+              <MoleculesMoPostTeaser :post="item" :key="item.id" />
+            </div>
+          </template>
+        </MasonryWall>
+      </div>
     </LayoutMoContainer>
   </section>
 </template>
@@ -20,8 +24,11 @@
  */
   const config = useRuntimeConfig();
   const STRAPI_URL = config.STRAPI_URL
-  const { data: posts } = await useFetch(`${STRAPI_URL}`)
-
+  const { pending, data: posts } = await useAsyncData('articles', () => $fetch(`${STRAPI_URL}articles/`))
+  const refresh = () => refreshNuxtData('articles')
+  onMounted(() => {
+    refresh()
+  })
 /**
  * Return color for post category
  * @param category
