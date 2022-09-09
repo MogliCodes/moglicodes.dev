@@ -2,41 +2,18 @@
   <div class="page">
     <section id="start" class="py-16 blog-detail">
       <LayoutMoContainer is-narrow>
-        <div v-if="pending">
-          <AtomsMoSpinner />
-        </div>
-        <div v-else>
-          <div v-if="post">
-            <span class="dark:text-white text-sm block mb-4">{{ convertToLocaleDateString(post.created_at) }}</span>
-            <AtomsMoHeadline v-if="post.title" headline-type="h1" :text="post.title" />
-            <div v-if="post.content" class="dark:text-white">
-              <div v-html="md.render(post.content)" />
-              <AtomsMoButton text="Go back" action="goBack" />
-            </div>
-          </div>
-        </div>
+        <ContentDoc v-slot="{ doc }">
+          <p>{{ convertToLocaleDateString(doc.date) }}</p>
+          <ContentRenderer :value="doc" />
+        </ContentDoc>
+        <AtomsMoButton text="Go back" action="goBack" />
       </LayoutMoContainer>
     </section>
   </div>
 </template>
 
-<script setup lang="ts" >
-  const convertToLocaleDateString = useConvertToLocaleDateString
-
-  import MarkdownIt from "markdown-it";
-  const md = new MarkdownIt();
-  /**
-   * Fetch posts
-   */
-  const config = useRuntimeConfig();
-  const STRAPI_URL = config.STRAPI_URL;
-  const route = useRoute();
-  const slug = route.params.slug;
-  const { pending, data: post } = await useAsyncData('post', () => $fetch(`${STRAPI_URL}articles/${slug}`), { initialCache: false });
-  const refresh = () => refreshNuxtData('post')
-  onMounted(() => {
-    refresh()
-  })
+<script setup>
+const convertToLocaleDateString = useConvertToLocaleDateString
 </script>
 
 <style lang="scss">
@@ -44,8 +21,17 @@
   @apply py-16;
 }
 .blog-detail {
+  h1, h2, h3, p, span, li, a {
+    @apply dark:text-white;
+  }
   p {
     @apply mb-4;
+  }
+  a {
+    text-decoration: underline;
+  }
+  h1 {
+    @apply text-5xl font-bold mb-8 font-display;
   }
   h2 {
     @apply mt-12 mb-4 text-2xl font-bold;
@@ -53,9 +39,12 @@
   h3 {
     @apply mt-8 mb-4 text-lg font-bold;
   }
+  pre code {
+    @apply block p-8 overflow-x-auto;
+  }
   code {
-    @apply block text-gray-200 p-12 my-4 shadow-lg bg-black bg-opacity-80;
-    border-radius: 15px;
+    @apply text-gray-200 p-2 my-4 shadow-lg bg-black bg-opacity-80;
+    border-radius: 5px;
   }
   li {
     @apply list-disc ml-5;

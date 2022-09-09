@@ -22,6 +22,9 @@ export default defineNuxtConfig({
         },
     },
     css: ['~/assets/css/tailwind.css'],
+    modules: [
+        '@nuxt/content', '@vueuse/nuxt',
+    ],
     buildModules: ['@pinia/nuxt'],
     build: {
         transpile: ['@yeger/vue-masonry-wall'],
@@ -30,6 +33,11 @@ export default defineNuxtConfig({
         },
     },
     target: 'static',
+    content: {
+        highlight: {
+            theme: 'github-dark',
+        }
+    },
     nitro: {
         prerender: {
             routes: ['/', '/blog', '/blog/*']
