@@ -3,6 +3,7 @@
     <span class="block rounded-full h-4 w-4 m-0.5 bg-mc-lightblue"></span>
     <span class="block rounded-full h-4 w-4 m-0.5 bg-mc-lightblue"></span>
     <span class="block rounded-full h-4 w-4 m-0.5 bg-mc-lightblue"></span>
+    <span>Change in File b.</span>
   </div>
 </template>
 
