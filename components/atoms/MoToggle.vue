@@ -2,6 +2,7 @@
   <div ref="toggleEl" @click="toggle" class="h-6 w-12 bg-white rounded-full relative cursor-pointer">
     <span class="absolute transition-all bg-mc-lightblue h-5 w-5 rounded-full top-0.5 left-0.5"></span>
     <span>This is just a demo!</span>
+    <span>Another test</span>
   </div>
 </template>
 
