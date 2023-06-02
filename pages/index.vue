@@ -5,12 +5,10 @@
         <SectionsHomeGithub />
         <SectionsHomeBlog />
       </main>
-      <MoOverlay v-if="overlayStore.isActive" />
+      <MoBanner />
     </div>
 </template>
 
 <script setup>
-import { useOverlayStore } from "~/stores/overlay";
-const overlayStore = useOverlayStore()
-import MoOverlay from '~/components/organisms/MoOverlay/MoOverlay.vue'
+import MoBanner from '~/components/organisms/MoBanner/MoBanner.vue'
 </script>
