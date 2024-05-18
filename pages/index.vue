@@ -2,7 +2,8 @@
     <div>
       <main>
         <SectionsHomeStart />
-
+        <SectionsHomeGithub />
+        <SectionsHomeBlog />
       </main>
       <MoBanner />
     </div>

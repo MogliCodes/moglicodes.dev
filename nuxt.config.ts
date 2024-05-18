@@ -1,8 +1,9 @@
 // @ts-ignore
 export default defineNuxtConfig({
-    publicRuntimeConfig: {
-        STRAPI_URL: process.env.STRAPI_URL,
-        GITHUB_API_URL: process.env.GITHUB_API_URL
+    runtimeConfig: {
+        public: {
+            githubApiUrl: process.env.NUXT_GITHUB_API_URL
+        }
     },
     app: {
         head: {

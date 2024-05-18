@@ -31,7 +31,8 @@ module.exports = {
         'mc-waikawa': '#5969A9',
         'mc-persian-rose': '#FF36AB',
         'mc-fern': '#54B872',
-        'mc-glacier': '#76B5C5'
+        'mc-glacier': '#76B5C5',
+        'docker': '#1D63ED'
       },
     },
   },

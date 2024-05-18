@@ -1,8 +1,12 @@
 <template>
   <div class="page">
     <section id="start" class="py-16 blog-detail">
+
       <LayoutMoContainer is-narrow>
         <ContentDoc v-slot="{ doc }">
+          <span class="flex gap-2">
+            <span v-for="category in doc.category.split(',')" :class="getCategoryColorClass(category)" class="dark:text-white inline-block py-1 px-4 font-display text-sm rounded-full mb-4 text-white">{{ category }}</span>
+          </span>
           <p>{{ convertToLocaleDateString(doc.date) }}</p>
           <ContentRenderer :value="doc" />
         </ContentDoc>
@@ -14,6 +18,31 @@
 
 <script setup>
 const convertToLocaleDateString = useConvertToLocaleDateString
+
+function getCategoryColorClass(category) {
+  console.log('category', category)
+  switch(category.trim()) {
+    case 'Cheat Sheet':
+      return 'bg-orange-500'
+    case 'Javascript':
+      return 'bg-mc-persian-rose'
+    case 'Nuxt.JS':
+      return 'bg-mc-fern'
+    case 'Services':
+      return 'bg-mc-glacier'
+    case 'Random':
+      return 'bg-mc-waikawa'
+    case 'Docker':
+      return 'bg-docker'
+    case 'DevOps':
+      return 'bg-gray-700'
+    case 'Virtualization':
+      return 'bg-teal-900'
+    default:
+      return 'bg-black'
+  }
+}
+
 </script>
 
 <style lang="scss">
@@ -40,7 +69,7 @@ const convertToLocaleDateString = useConvertToLocaleDateString
     @apply mt-8 mb-4 text-lg font-bold;
   }
   pre code {
-    @apply block p-8 overflow-x-auto;
+    @apply block p-4 overflow-x-auto;
   }
   code {
     @apply text-gray-200 p-2 my-4 shadow-lg bg-black bg-opacity-80;

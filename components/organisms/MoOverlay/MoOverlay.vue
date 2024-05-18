@@ -17,7 +17,7 @@
 import { ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import MoButton from '~/components/atoms/MoButton.vue'
-import { useOverlayStore } from "~/stores/overlay";
+import { useOverlayStore } from "~/store/overlay";
 const overlayStore = useOverlayStore()
 
 const target = ref(null)

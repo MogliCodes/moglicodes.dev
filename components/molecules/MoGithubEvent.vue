@@ -11,21 +11,33 @@
        </div>
        <div v-if="event.type === 'PushEvent'">
          <div>
-           <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} pushed to <a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.repo.name }}</a></span>
+           <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} <span class="font-normal">pushed to </span><a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.repo.name }}</a></span>
          </div>
-         <ul class="list-disc pl-5">
-           <li class="dark:text-white text-sm" v-for="(commit, index) in event.payload.commits" :key="index">
-             {{ commit.message }}
-           </li>
-         </ul>
+<!--         <ul class="list-disc pl-5">-->
+<!--           <li class="dark:text-white text-sm" v-for="(commit, index) in event.payload.commits" :key="index">-->
+<!--             {{ commit.message }}-->
+<!--           </li>-->
+<!--         </ul>-->
        </div>
        <div v-else-if="event.type === 'PullRequestEvent'">
          <div>
-           <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} opened a pull request in <a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.repo.name }}</a></span>
+           <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} </span>
+           <span>opened a pull request in </span>
+           <a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.repo.name }}</a>
          </div>
        </div>
        <div v-else-if="event.type === 'IssueCommentEvent'">
          <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} commented on an issue in <a class="underline" target="_blank" :href="event.payload.comment.html_url">{{ event.repo.name }}</a></span>
+       </div>
+       <div v-else-if="event.type ==='WatchEvent'">
+         <div>
+           <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} <span class="font-normal">started watching </span><a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.repo.name }}</a></span>
+         </div>
+       </div>
+       <div v-else-if="event.type ==='CreateEvent'">
+         <div>
+           <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} <span class="font-normal">created branch </span><a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.payload.ref }}</a></span>
+         </div>
        </div>
      </div>
  </div>

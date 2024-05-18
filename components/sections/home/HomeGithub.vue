@@ -1,14 +1,18 @@
 <template>
-  <section v-if="events" id="github-activity" class="section py-16">
+  <section id="github-activity" class="section py-20">
     <LayoutMoContainer>
-      <AtomsMoHeadline text="Latest GitHub Activity" headline-type="h1" class="text-center" />
-      <masonry-wall :items="eventsFiltered.slice(0, 4)" :ssr-columns="2" :column-width="550" :gap="16">
-        <template #default="{ item, index }">
-          <div>
+      <AtomsMoHeadline  text="Latest GitHub Activity" headline-type="h2" class="text-center" />
+      <div v-if="events"  class="grid grid-cols-2 gap-4" >
+          <div v-for="(item, index) in events.slice(0, 10)">
             <MoleculesMoGithubEvent :event="item" :key="index" />
           </div>
-        </template>
-      </masonry-wall>
+      </div>
+      <div class="flex flex-col gap-5 items-center" v-else>
+        <div class="bg-red-400 border-2 border-red-900 p-3 rounded-xl"><p class="text-center text-red-900">{{ error }}</p></div>
+        <div class="w-1/3 text-center text-xs">
+          <p>If you see this error, that means I have not yet come around to building a custom import service, that saves my GitHub data on a daily basis in order to prevent rate limit problems.</p>
+        </div>
+      </div>
     </LayoutMoContainer>
   </section>
 </template>
@@ -18,10 +22,10 @@
  * Fetch posts
  */
 const config = useRuntimeConfig();
-const GITHUB_API_URL = config.GITHUB_API_URL
-const { data: events } = await useFetch(`${GITHUB_API_URL}/events`)
+const apiUrl = config.public.githubApiUrl
+const { data: events, error, pending } = await useFetch(`${apiUrl}/events`)
 
-const eventsFiltered = events.value.filter( (event) => {
+const eventsFiltered = events.value?.filter( (event) => {
   return event.type == "PullRequestEvent"
 })
 
