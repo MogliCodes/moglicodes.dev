@@ -36,7 +36,8 @@ export default defineNuxtConfig({
     },
     nitro: {
         prerender: {
-            routes: ['/', '/blog', '/blog/*']
+            routes: ['/', '/blog', '/blog/*'],
+            failOnError: false
         }
     },
     vite: {
