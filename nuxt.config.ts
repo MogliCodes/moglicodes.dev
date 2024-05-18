@@ -1,3 +1,4 @@
+// @ts-ignore
 export default defineNuxtConfig({
     publicRuntimeConfig: {
         STRAPI_URL: process.env.STRAPI_URL,
@@ -10,7 +11,6 @@ export default defineNuxtConfig({
                 { charset: 'utf-8' },
                 { name: 'viewport', content: 'width=device-width, initial-scale=1' },
                 {
-                    hid: 'description',
                     name: 'description',
                     content: 'MogliCodes is a YouTube Channel dedicated to everything fun about web development. You won‘t get in-depth tutorials instead you will see me struggle and fail but eventually succeed. Hopefully.',
                 },
@@ -19,12 +19,10 @@ export default defineNuxtConfig({
         },
     },
     css: ['~/assets/css/tailwind.css'],
-    modules: [
-        '@nuxt/content', '@vueuse/nuxt',
-    ],
-    buildModules: ['@pinia/nuxt'],
+    modules: ['@nuxt/content', '@vueuse/nuxt', "@nuxtjs/tailwindcss"],
     build: {
         transpile: ['@yeger/vue-masonry-wall'],
+        // @ts-ignore
         postcss: {
             postcssOptions: require('./postcss.config.js'),
         },
