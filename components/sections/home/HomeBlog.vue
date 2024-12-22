@@ -5,10 +5,10 @@
           <ContentList path="/blog" v-slot="{ list }">
           <masonry-wall :items="list" :ssr-columns="2" :column-width="550" :gap="16">
             <template #default="{ item, index }">
-                <div class="p-8 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl" :key="item._path">
-                  <div class="flex gap-1" v-if="item.category">
+                <div class="p-6 md:p-8 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl" :key="item._path">
+                  <div class="flex flex-wrap gap-1 mb-4" v-if="item.category">
                     <span v-for="category in item.category.split(',')">
-                      <span v-if="category" :class="getCategoryColorClass(category.trim())" class="dark:text-white inline-block py-1 px-4 font-display text-sm rounded-full mb-4 text-white">{{ category.trim() }}</span>
+                      <span v-if="category" :class="getCategoryColorClass(category.trim())" class="dark:text-white inline-block py-1 px-4 font-display text-sm rounded-full  text-white">{{ category.trim() }}</span>
                     </span>
                   </div>
                   <span class="dark:text-white text-sm block">{{ useConvertToLocaleDateString(item.date) }}</span>

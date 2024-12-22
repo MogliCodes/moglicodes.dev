@@ -17,7 +17,7 @@ module.exports = {
       }
     },
     fontFamily: {
-      sans: ['Poppins'],
+      sans: ['Nunito'],
       display: ['Chewy'],
     },
     extend: {

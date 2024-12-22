@@ -14,14 +14,19 @@ export const useConvertToLocaleDateString = (
     _options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 ) => {
 
-    const date = new Date(_date)
-    const parts = fullFormat.formatToParts(date);
-    const weekDayName = parts.find(p => p.type === "weekday").value;
-    const dayName = parts.find(p => p.type === "day").value;
-    const monthName = parts.find(p => p.type === "month").value;
-    const year = parts.find(p => p.type === "year").value
-    const dayWithSuffix = withOrdinalSuffix(Number(dayName));
-    return `${weekDayName}, ${dayWithSuffix} ${monthName} ${year}`
+    try {
+        const date = new Date(_date)
+        const parts = fullFormat.formatToParts(date);
+        const weekDayName = parts.find(p => p.type === "weekday").value;
+        const dayName = parts.find(p => p.type === "day").value;
+        const monthName = parts.find(p => p.type === "month").value;
+        const year = parts.find(p => p.type === "year").value
+        const dayWithSuffix = withOrdinalSuffix(Number(dayName));
+        return `${weekDayName}, ${dayWithSuffix} ${monthName} ${year}`
+    } catch (e) {
+        console.error(e)
+        return _date
+    }
 }
 
 function withOrdinalSuffix(x) {

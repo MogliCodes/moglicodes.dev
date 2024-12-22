@@ -2,6 +2,7 @@
     <div>
       <main>
         <SectionsHomeStart />
+        <SectionsHomeProjects />
         <SectionsHomeGithub />
         <SectionsHomeBlog />
       </main>

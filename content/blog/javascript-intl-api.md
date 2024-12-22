@@ -12,7 +12,7 @@ navigation:
 
 ## TLDR; Show me the code
 
-    ```js
+    ```javascript
     const locale = 'en-GB'
     const fullFormat = new Intl.DateTimeFormat(locale, { dateStyle: 'full'})
     const ordinalSuffixes = {
