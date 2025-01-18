@@ -19,6 +19,7 @@ module.exports = {
     fontFamily: {
       sans: ['Nunito'],
       display: ['Chewy'],
+      mono: ['FiraCode Nerd Font Mono']
     },
     extend: {
       colors: {
@@ -34,6 +35,9 @@ module.exports = {
         'mc-glacier': '#76B5C5',
         'docker': '#1D63ED'
       },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      }
     },
   },
   plugins: [],

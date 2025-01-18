@@ -3,7 +3,7 @@
     <LayoutMoContainer>
       <AtomsMoHeadline  text="Latest GitHub Activity" headline-type="h2" class="text-center" />
       <div v-if="events"  class="grid md:grid-cols-2 gap-4" >
-          <div v-for="(item, index) in events.slice(0, 10)">
+          <div v-for="(item, index) in events.slice(0, 6)">
             <MoleculesMoGithubEvent :event="item" :key="index" />
           </div>
       </div>

@@ -1,11 +1,11 @@
 <template>
  <div class="flex p-8 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl">
-     <div v-if="event.actor">
-       <figure v-if="event.actor.avatar_url" class="rounded-full w-12 overflow-hidden shadow-md">
+     <div class="flex items-center" v-if="event.actor">
+       <figure v-if="event.actor.avatar_url" class="rounded-full w-16 overflow-hidden shadow-md">
          <img :src="event.actor.avatar_url" alt="">
        </figure>
      </div>
-     <div class="pl-6">
+     <div class="pl-6 w-full">
        <div>
          <span class="dark:text-white text-sm">{{ convertToLocaleDateString(event.created_at) }}</span>
        </div>
@@ -36,8 +36,11 @@
        </div>
        <div v-else-if="event.type ==='CreateEvent'">
          <div>
-           <span class="dark:text-white block mb-2 font-bold">{{ event.actor.display_login }} <span class="font-normal">created branch </span><a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.payload.ref }}</a></span>
+           <span class="dark:text-white block font-bold">{{ event.actor.display_login }} <span class="font-normal">created branch </span><a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.payload.ref }}</a></span>
          </div>
+       </div>
+       <div class="bg-gray-900 text-white px-2 py-1 rounded font-mono text-xs" v-if="event?.payload?.commits?.[0]">
+         {{ event?.payload?.commits?.[0].message }}
        </div>
      </div>
  </div>

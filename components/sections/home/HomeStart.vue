@@ -8,7 +8,7 @@
               MogliCodes is a YouTube Channel dedicated to everything fun about web development. You won‘t get in-depth tutorials instead you will see me struggle and fail but eventually succeed. Hopefully.
             </p>
           </div>
-          <a href="#github-activity" class="cursor-pointer scroll-arrow animate-bounce absolute bottom-10 w-[50px] h-[50px] left-[calc(50%-25px)]">
+          <a href="#projects" class="cursor-pointer scroll-arrow animate-bounce absolute bottom-10 w-[50px] h-[50px] left-[calc(50%-25px)]">
             <img src="/chevron-direction-bottom-icon.svg" alt="">
           </a>
         </LayoutMoGrid>
