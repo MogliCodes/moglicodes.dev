@@ -54,7 +54,7 @@ function getCategoryColorClass(category) {
     @apply dark:text-white;
   }
   p {
-    @apply mb-4;
+    @apply text-xl mb-4;
   }
   a {
     text-decoration: underline;

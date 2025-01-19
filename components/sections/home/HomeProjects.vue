@@ -25,11 +25,15 @@ import MoCardSlot from "~/components/atoms/MoCardSlot.vue";
 const projects = [
   {
     title: "tunnel.music",
-    description: "tunnel.music is a website that showcases music which helps me focus on work. It is built with Nuxt.js, Tailwind CSS, TypeScript, and Vite. The website is hosted on Netlify.",
+    description: "tunnel.music is a website that showcases music which helps me focus on work. It is built with Nuxt.js, Tailwind CSS, TypeScript, and Vite. The website is hosted on Netlify. I also try to use Nuxt Studio as a CMS, but sometimes it is just more comfortable to edit files in my IDE and commit them. ",
     links: [
       {
         text: "GitHub Repository",
         url: "https://github.com/moglicodes/tunnel-music"
+      },
+      {
+        text: "Website",
+        url: "https://tunnelmusic.netlify.app"
       }
       ]
   },

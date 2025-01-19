@@ -23,6 +23,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        'mc-orange': '#f08050',
+        'mc-pink': '#f7c8c8',
         'primary': '#f9b672',
         'primary-lighter': '#ffd2a6',
         'primary-darker': '#e5a15c',
@@ -33,10 +35,12 @@ module.exports = {
         'mc-persian-rose': '#FF36AB',
         'mc-fern': '#54B872',
         'mc-glacier': '#76B5C5',
-        'docker': '#1D63ED'
+        'docker': '#1D63ED',
+        'mongodb': '#4DB33D',
+        'homelab': '#a3a3a3',
       },
       animation: {
-        'spin-slow': 'spin 3s linear infinite',
+        'spin-slow': 'spin 30s linear infinite',
       }
     },
   },

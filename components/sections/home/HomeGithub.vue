@@ -9,9 +9,6 @@
       </div>
       <div class="flex flex-col gap-5 items-center" v-else>
         <div class="bg-red-400 border-2 border-red-900 p-3 rounded-xl"><p class="text-center text-red-900">{{ error }}</p></div>
-        <div class="w-1/3 text-center text-xs">
-          <p>If you see this error, that means I have not yet come around to building a custom import service, that saves my GitHub data on a daily basis in order to prevent rate limit problems.</p>
-        </div>
       </div>
     </LayoutMoContainer>
   </section>
