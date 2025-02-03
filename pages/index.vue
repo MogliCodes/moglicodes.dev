@@ -1,20 +1,24 @@
 <template>
     <div>
-      <div v-if="data.recenttracks?.track[0]['@attr']?.['nowplaying']" class="fixed z-[1000] w-[120px] aspect-square top-8 right-8  spin-slow">
-        <div class="relative">
-          <div class="bg-mc-orange hover:bg-mc-fern cursor-pointer group flex items-center justify-center aspect-square block text-center text-xs font-bold rounded-full p-4">
-            <div class="block group-hover:hidden">
-              {{ `${data.recenttracks?.track[0].name}` }}
+      <client-only>
+        <div v-if="data.recenttracks?.track[0]['@attr']?.['nowplaying']"
+             class="fixed z-[1000] w-[120px] aspect-square top-8 right-8  spin-slow">
+          <div class="relative">
+            <div
+                class="bg-mc-orange hover:bg-mc-fern cursor-pointer group flex items-center justify-center aspect-square block text-center text-xs font-bold rounded-full p-4">
+              <div class="block group-hover:hidden">
+                {{ `${data.recenttracks?.track[0].name}` }}
+              </div>
+              <div class="hidden group-hover:block">
+                {{ `${data.recenttracks?.track[0].artist['#text']}` }}
+              </div>
             </div>
-            <div class="hidden group-hover:block">
-              {{ `${data.recenttracks?.track[0].artist['#text']}` }}
+            <div class="absolute left-[-20px] top-[-20px] w-[160px] h-[160px] pointer-events-none animate-spin-slow">
+              <img src="/now-playing.svg" alt="">
             </div>
-          </div>
-          <div class="absolute left-[-20px] top-[-20px] w-[160px] h-[160px] pointer-events-none animate-spin-slow">
-            <img src="/now-playing.svg" alt="">
           </div>
         </div>
-      </div>
+      </client-only>
       <main>
         <SectionsHomeStart />
         <SectionsHomeProjects />
