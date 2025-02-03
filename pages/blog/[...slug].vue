@@ -63,7 +63,11 @@ function getCategoryColorClass(category) {
     @apply text-5xl font-bold mb-8 font-display;
   }
   h2 {
-    @apply mt-12 mb-4 text-2xl font-bold;
+    @apply mt-12 mb-4 text-2xl font-bold shadow-none;
+  }
+  h2 a {
+    @apply no-underline;
+    text-shadow: none;
   }
   h3 {
     @apply mt-8 mb-4 text-lg font-bold;
