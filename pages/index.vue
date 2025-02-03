@@ -1,7 +1,7 @@
 <template>
-    <div class="homepage">
+    <div>
       <client-only>
-        <div v-if="data?.recenttracks?.track[0]['@attr']?.['nowplaying']"
+        <div v-if="data.recenttracks?.track[0]['@attr']?.['nowplaying']"
              class="fixed z-[1000] w-[120px] aspect-square top-8 right-8  spin-slow">
           <div class="relative">
             <div
@@ -32,8 +32,6 @@
 <script setup>
 import MoBanner from '~/components/organisms/MoBanner/MoBanner.vue'
 
-const { data, error, pending } = await useAsyncData('recenttracks', () => $fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Moglash&api_key=&limit=1&format=json`), {
-  server: false
-})
+const { data, error, pending } = await useFetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Moglash&api_key=748db0d5fc56991d10aad4ce5165e345&limit=1&format=json`)
 
 </script>
