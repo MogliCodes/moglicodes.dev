@@ -19,30 +19,6 @@
 <script setup>
 const convertToLocaleDateString = useConvertToLocaleDateString
 
-function getCategoryColorClass(category) {
-  console.log('category', category)
-  switch(category.trim()) {
-    case 'Cheat Sheet':
-      return 'bg-orange-500'
-    case 'Javascript':
-      return 'bg-mc-persian-rose'
-    case 'Nuxt.JS':
-      return 'bg-mc-fern'
-    case 'Services':
-      return 'bg-mc-glacier'
-    case 'Random':
-      return 'bg-mc-waikawa'
-    case 'Docker':
-      return 'bg-docker'
-    case 'DevOps':
-      return 'bg-gray-700'
-    case 'Virtualization':
-      return 'bg-teal-900'
-    default:
-      return 'bg-black'
-  }
-}
-
 </script>
 
 <style lang="scss">

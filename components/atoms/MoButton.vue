@@ -1,5 +1,5 @@
 <template>
-  <button class="dark:bg-primary bg-mc-blue text-white font-display block py-2 px-8 rounded-full hover:bg-mc-lightblue dark:hover:bg-mc-lightblue transition-colors" @click="buttonAction(action)">{{ text }}</button>
+  <button class="bg-mc-fern hover:bg-mc-orange text-white font-display block py-2 px-8 rounded-full transition-colors" @click="buttonAction(action)">{{ text }}</button>
 </template>
 
 <script setup lang="ts">

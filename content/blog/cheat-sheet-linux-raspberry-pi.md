@@ -8,7 +8,7 @@ navigation:
     icon: '🏡'
 ---
 
-# Cheat Sheet: Linux on Raspberry Pi
+# Cheat Sheet: Linux (on Raspberry Pi)
 
 ## General & system status
 One of the first things I do on almost every machine running Linux, is to install [neofetch](https://github.com/dylanaraps/neofetch). If you ever need to find out specs of your machine, this is the way to go.
@@ -20,6 +20,11 @@ neofetch
 # Print free disk space
 df -h
 ```
+
+I also like to use a little tool called [btop](https://github.com/aristocratos/btop) to check various metrics.
+
+![btop screenshot](/btop.png)
+
 ## Attached Hardware 
 When it comes to attached hardware, the most common commands I use are the following:
 
@@ -41,6 +46,8 @@ lspci
 ```
 
 ## File system and permissions
+When it comes to permissions in Linux I am a real dunce. That needs to change. Find out more about permissions in this [article](/blog/linux-file-permissions).
+
 ```bash
 # Check permissions
 ls -l

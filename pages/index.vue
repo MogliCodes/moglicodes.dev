@@ -1,8 +1,8 @@
 <template>
     <div>
       <client-only>
-        <div v-if="data.recenttracks?.track[0]['@attr']?.['nowplaying']"
-             class="fixed z-[1000] w-[120px] aspect-square top-8 right-8  spin-slow">
+        <div  v-if="data.recenttracks?.track[0]['@attr']?.['nowplaying']"
+             class="scale-75 md:scale-100 fixed z-[1000] w-[120px] aspect-square top-3 right-3 md:top-8 md:right-8  spin-slow">
           <div class="relative">
             <div
                 class="bg-mc-orange hover:bg-mc-fern cursor-pointer group flex items-center justify-center aspect-square block text-center text-xs font-bold rounded-full p-4">
@@ -19,7 +19,7 @@
           </div>
         </div>
       </client-only>
-      <main>
+      <main class="pt-10">
         <SectionsHomeStart />
         <SectionsHomeProjects />
         <SectionsHomeGithub />

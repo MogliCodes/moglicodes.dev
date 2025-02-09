@@ -2,7 +2,8 @@
  * Return color for post category
  * @param category
  */
-export function getCategoryColorClass(category: string) {
+export function getCategoryColorClass(category) {
+    console.log('category', category)
     switch(category.trim()) {
         case 'Cheat Sheet':
             return 'bg-orange-500'
@@ -26,6 +27,10 @@ export function getCategoryColorClass(category: string) {
             return 'bg-yellow-300'
         case 'Raspberry Pi':
             return 'bg-pink-700'
+        case 'MongoDB':
+            return 'bg-mongodb'
+        case 'Homelab':
+            return 'bg-homelab'
         default:
             return 'bg-black'
     }
