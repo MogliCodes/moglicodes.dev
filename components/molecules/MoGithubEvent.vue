@@ -39,6 +39,11 @@
            <span class="dark:text-white block font-bold">{{ event.actor.display_login }} <span class="font-normal">created branch </span><a class="underline" target="_blank" :href="`https://github.com/${event.repo.name}`">{{ event.payload.ref }}</a></span>
          </div>
        </div>
+       <div v-else-if="event.type ==='ForkEvent'">
+         <div>
+           <span class="dark:text-white block font-bold">{{ event.actor.display_login }} <span class="font-normal">forked repo </span><a class="underline" target="_blank" :href="`${event.repo.url}`">{{ event.repo.name }}</a></span>
+         </div>
+       </div>
        <div class="bg-gray-900 text-white px-2 py-1 rounded font-mono text-xs" v-if="event?.payload?.commits?.[0]">
          {{ event?.payload?.commits?.[0].message }}
        </div>
