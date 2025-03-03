@@ -2,8 +2,7 @@
  * Return color for post category
  * @param category
  */
-export function getCategoryColorClass(category) {
-    console.log('category', category)
+export function getCategoryColorClass(category: string) {
     switch(category.trim()) {
         case 'Cheat Sheet':
             return 'bg-orange-500'
