@@ -38,6 +38,8 @@ module.exports = {
         'docker': '#1D63ED',
         'mongodb': '#4DB33D',
         'homelab': '#a3a3a3',
+        'baas': '#f08050',
+        'supabase': '#0c1b33',
       },
       animation: {
         'spin-slow': 'spin 30s linear infinite',

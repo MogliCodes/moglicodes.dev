@@ -10,53 +10,55 @@ export default defineNuxtConfig({
         head: {
             title: 'MogliCodes',
             meta: [
-                {charset: 'utf-8'},
-                {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+                { charset: 'utf-8' },
+                { name: 'viewport', content: 'width=device-width, initial-scale=1' },
                 {
                     name: 'description',
-                    content: 'MogliCodes is a YouTube Channel dedicated to everything fun about web development. You won‘t get in-depth tutorials instead you will see me struggle and fail but eventually succeed. Hopefully.',
+                    content: 'MogliCodes is a YouTube Channel dedicated to everything fun about web development. You won't get in- depth tutorials instead you will see me struggle and fail but eventually succeed.Hopefully.',
                 },
             ],
-            link: [{rel: 'icon', type: 'image/x-icon', href: 'favicon.ico'}],
-        },
+        link: [{ rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }],
     },
+},
 
     css: ['~/assets/css/tailwind.css'],
-    modules: ['@nuxt/content', '@vueuse/nuxt', "@nuxtjs/tailwindcss"],
+    modules: ['@nuxt/content', '@vueuse/nuxt', "@nuxtjs/tailwindcss", '@nuxtjs/plausible'],
+
+    plausible: {
+    domain: 'moglicodes.dev'
+},
 
     build: {
-        transpile: ['@yeger/vue-masonry-wall'],
-        // @ts-ignore
-        postcss: {
-            postcssOptions: require('./postcss.config.js'),
-        },
+    transpile: ['@yeger/vue-masonry-wall'],
+    // @ts-ignore
+    postcss: {
+        postcssOptions: require('./postcss.config.js'),
     },
+},
 
     target: 'static',
 
     content: {
-        highlight: {
-            theme: 'github-dark',
-        },
+    highlight: {
+        theme: 'github-dark',
     },
+},
 
     nitro: {
-        prerender: {
-            routes: ['/', '/blog', '/blog/*'],
-            failOnError: false
-        }
-    },
+    prerender: {
+        routes: ['/', '/blog', '/blog/*'],
+        failOnError: false
+    }
+},
 
     vite: {
-        logLevel: 'info',
-        optimizeDeps: {
-            include: [
-                '@yeger/vue-masonry-wall'
-            ]
-        }
-    },
-
-
+    logLevel: 'info',
+    optimizeDeps: {
+        include: [
+            '@yeger/vue-masonry-wall'
+        ]
+    }
+},
 
     compatibilityDate: '2024-12-22',
 })

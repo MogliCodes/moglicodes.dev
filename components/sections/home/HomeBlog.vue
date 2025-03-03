@@ -3,7 +3,7 @@
     <LayoutMoContainer>
         <AtomsMoHeadline class="text-center" headline-type="h2" text="Blog" />
           <ContentList path="/blog" v-slot="{ list }">
-          <masonry-wall :items="sortedList(list).splice(0,2)" :ssr-columns="2" :column-width="550" :gap="16">
+          <masonry-wall :items="sortedList(list).splice(0,4)" :ssr-columns="2" :column-width="550" :gap="16">
             <template #default="{ item, index }">
                 <div class="p-6 md:p-8 bg-white bg-opacity-10 backdrop-blur-lg rounded-xl " :key="item._path">
                   <div class="flex flex-wrap gap-1 mb-4" v-if="item.category">

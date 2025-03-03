@@ -1,5 +1,5 @@
 ---
-title: "Cheat Sheet: Linux on Raspberry Pi"
+title: "Cheat Sheet: Linux (on Raspberry Pi)"
 description: 'Just a list of linux commands I frequently use on my Raspberry Pi'
 category: Cheat Sheet, OS, Linux, Raspberry Pi
 date: 12/23/2023
@@ -54,8 +54,7 @@ ls -l
 ```
 
 ## tmux
-I discovered tmux, because after ssh-ing into my Raspberry Pi, I wanted to run commands, and do stuff while the commands where running. tmux allows you to split your window, created sessions and windows.
-
+I discovered tmux, because after ssh-ing into my Raspberry Pi, I wanted to run commands, and do stuff while the commands where running. tmux allows you to split your window, created sessions and windows. The following commands are the ones I use most frequently. You can use tmux's sessions to run a process, detach from the session, and reattach to it later. If you want to learn more about tmux, check out the [GitHub Wiki](https://github.com/tmux/tmux/wiki).
 ```bash 
 # split pane horizontally
 ctrl + b & shit + %
@@ -63,13 +62,14 @@ ctrl + b & shit + %
 # switch pane
 ctrl + b & cursor
 
+# create new window
+ctrl + b & c
+
+# detach from session
+ctrl + b & d
+
+# reattach to session mysession
+mux a -t mysession
 ```
 
-## nginx
-```bash
-# Check status
-systemctl status nginx
-
-# Restart nginx
-systemctl restart nginx
-```
+More Cheats to follow...

@@ -31,6 +31,10 @@ export function getCategoryColorClass(category) {
             return 'bg-mongodb'
         case 'Homelab':
             return 'bg-homelab'
+        case 'BaaS':
+            return 'bg-baas'
+        case 'Supabase':
+            return 'bg-supabase'
         default:
             return 'bg-black'
     }
