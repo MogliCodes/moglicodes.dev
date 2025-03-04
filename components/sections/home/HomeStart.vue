@@ -1,5 +1,5 @@
 <template>
-    <section id="start" class="min-h-screen flex items-center pt-20 relative">
+    <section id="start" class="min-h-screen flex items-center justify-center relative">
       <LayoutMoContainer>
         <LayoutMoGrid class="ml-8 mr-8 md:ml-[20%] md:mr-[20%]" grid-columns="1">
           <div class="text-center">

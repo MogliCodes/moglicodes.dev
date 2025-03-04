@@ -19,7 +19,7 @@
         </div>
       </div>
     </client-only>
-    <main class="pt-10">
+    <main class="">
       <SectionsHomeStart/>
       <SectionsHomeProjects/>
       <SectionsHomeGithub/>
