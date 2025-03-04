@@ -14,6 +14,8 @@ import '@/assets/css/tailwind.css'
 <style>
 html {
   @apply scroll-smooth;
+  scroll-margin-top: 80px; /* Account for fixed header */
+  scroll-padding-top: 80px; /* Additional padding for better scroll positioning */
 }
 
 h1,  h2 {

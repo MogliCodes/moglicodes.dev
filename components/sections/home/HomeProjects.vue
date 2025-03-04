@@ -1,5 +1,5 @@
 <template>
-  <section id="projects" class="py-24 flex items-center -mt-20 relative">
+  <section id="projects" class="py-24 flex items-center pt-20 relative">
     <LayoutMoContainer>
       <div class="flex justify-center">
         <MoHeadline text="Projects" headline-type="h2"/>

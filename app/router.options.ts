@@ -2,12 +2,11 @@ import type { RouterConfig } from '@nuxt/schema'
 
 // https://router.vuejs.org/api/#routeroptions
 export default <RouterConfig>{
-    scrollBehavior(to, _, savedPosition) {
+    scrollBehavior(to, from, savedPosition) {
         const nuxtApp = useNuxtApp()
 
         // If history back
         if (savedPosition) {
-            // Handle Suspense resolution
             return new Promise((resolve) => {
                 nuxtApp.hooks.hookOnce('page:finish', () => {
                     setTimeout(() => resolve(savedPosition), 50)
@@ -15,10 +14,20 @@ export default <RouterConfig>{
             })
         }
 
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve({ top: 0, behavior: 'smooth' })
-            }, 500)
+        // If navigating to a hash
+        if (to.hash) {
+            return {
+                el: to.hash,
+                behavior: 'smooth',
+                top: 80 // Account for fixed header
+            }
+        }
+
+        // For new page loads, scroll to top
+        return new Promise((resolve) => {
+            nuxtApp.hooks.hookOnce('page:finish', () => {
+                setTimeout(() => resolve({ top: 0, behavior: 'smooth' }), 100)
+            })
         })
     },
 }

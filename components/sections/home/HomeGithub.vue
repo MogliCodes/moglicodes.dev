@@ -16,14 +16,34 @@
 
 <script setup lang="ts">
 /**
- * Fetch posts
+ * Fetch GitHub events
  */
+interface GitHubEvent {
+  type: string;
+  actor: {
+    display_login: string;
+    avatar_url: string;
+  };
+  repo: {
+    name: string;
+    url: string;
+  };
+  created_at: string;
+  payload: {
+    pull_request?: {
+      title: string;
+      html_url: string;
+    };
+  };
+}
+
 const config = useRuntimeConfig();
 const apiUrl = config.public.githubApiUrl
-const { data: events, error, pending } = await useFetch(`${apiUrl}/events`)
-
-const eventsFiltered = events.value?.filter( (event) => {
-  return event.type == "PullRequestEvent"
+const { data: events, error, pending } = await useFetch<GitHubEvent[]>(`${apiUrl}/events`, {
+  server: false // Only fetch on client-side
 })
 
+const eventsFiltered = events.value?.filter((event) => {
+  return event.type === "PullRequestEvent"
+})
 </script>
